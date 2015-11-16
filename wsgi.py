@@ -50,7 +50,7 @@ def application(environ, start_response):
     elif environ['PATH_INFO'] == '/source':
         response_body = "https://github.engineering.zhaw.ch/spio/wintipoptracker.git"
     else:
-        response_body = "This is a data source/data service informing about the population of Winterthur. Use /current or /history or /predict/{number-of-inhabitants} as invocation methods. Use /source to get a pointer to the service implementation source code."
+        response_body = "This is a data source/data service informing about the population of Winterthur. Use /filter to filter /current or /history or /predict/{number-of-inhabitants} as invocation methods. Use /source to get a pointer to the service implementation source code."
     response_body = response_body.encode('utf-8')
 
     status = '200 OK'
