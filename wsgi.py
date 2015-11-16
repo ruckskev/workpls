@@ -14,7 +14,7 @@ def application(environ, start_response):
         lines = open(logpath).readlines()
         response_body = "".join(lines)
     elif environ['PATH_INFO'] == '/current':
-        lines = open("logpath","r")
+        lines = open(logpath).readlines()
         response_body = lines[-1]	
 	elif environ['PATH_INFO'] == '/filter':
 		lines = open("logpath","r")
