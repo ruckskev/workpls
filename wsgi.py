@@ -14,10 +14,10 @@ def application(environ, start_response):
         lines = open(logpath).readlines()
         response_body = "".join(lines)
     elif environ['PATH_INFO'] == '/current':
-        lines = open(logpath).readlines()
+        lines = open("logpath","r")
         response_body = lines[-1]	
 	elif environ['PATH_INFO'] == '/filter':
-		lines = open(logpath).readlines()
+		lines = open("logpath","r")
 		output = []
 		for line in lines:
 			for line in lines:
@@ -25,7 +25,7 @@ def application(environ, start_response):
         			if(not line.endswith(',')):
             			output.append(line)
 		lines.close()
-		response_body = "".join(output[])
+		response_body = "".join(output)
     elif environ['PATH_INFO'].startswith('/predict/'):
         s = re.compile("/predict/(\d+)")
         m = s.match(environ['PATH_INFO'])
