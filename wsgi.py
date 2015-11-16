@@ -25,7 +25,7 @@ def application(environ, start_response):
         			if(not line.endswith(',')):
             			output.append(line)
 		lines.close()
-		response_body = "".join(output)
+		response_body = "".join(output[])
     elif environ['PATH_INFO'].startswith('/predict/'):
         s = re.compile("/predict/(\d+)")
         m = s.match(environ['PATH_INFO'])
