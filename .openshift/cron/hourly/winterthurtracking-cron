@@ -1,0 +1,8 @@
+#!/bin/sh
+
+stamp=`date +%s`
+humanstamp=`date`
+#persons=`lynx -dump http://einwohnerkontrolle.winterthur.ch/ | grep Momentan | awk '{print $3}' | tr -d "'"`
+persons=`wget -q -O- http://einwohnerkontrolle.winterthur.ch/ | grep Momentan | awk '{print $10}' | cut -d ">" -f 2 | cut -d "<" -f 1 | tr -d "'"`
+echo "$stamp,$persons,$humanstamp" >> $OPENSHIFT_DATA_DIR/winti.log
+#echo "foo" >> $OPENSHIFT_DATA_DIR/winti.persistent
